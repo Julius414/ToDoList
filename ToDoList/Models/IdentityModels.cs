@@ -20,6 +20,9 @@ namespace ToDoList.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<ToDoItem> toDoItems { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

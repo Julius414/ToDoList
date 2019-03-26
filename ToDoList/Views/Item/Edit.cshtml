@@ -1,0 +1,27 @@
+﻿@model ToDoList.ViewModels.ItemViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ToDoItem.Name)
+        @Html.TextBoxFor(m => m.ToDoItem.Name, new { @class = "form-control" }) @* Bootstrap class, provides a modern look to the input firld*@
+        @Html.ValidationMessageFor(m => m.ToDoItem.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ToDoItem.Description)
+        @Html.TextAreaFor(m => m.ToDoItem.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ToDoItem.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ToDoItem.StatusId)
+        @Html.DropDownListFor(m => m.ToDoItem.StatusId, new SelectList(Model.Statuses, "Id", "StatusName"), "", new { @class = "form-control" }) @* Bootstrap class, provides a modern look to the input firld*@
+        
+    </div>
+    
+}

@@ -1,0 +1,25 @@
+﻿@model ICollection<ToDoList.Models.ToDoItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>To Do List</h2>
+
+<table class="table table-bordered table-hover">
+    <thread>
+        <tr>
+            <th>Task</th>
+            <th>Status</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Name, "Edit", "Item", new { id = item.Id }, null)</td>
+                <td>@item.Status.StatusName</td>
+            </tr>
+        }
+    </tbody>
+</table>
